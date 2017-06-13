@@ -46,7 +46,7 @@
     <function-signature>java.lang.Object getConst(java.lang.String)</function-signature>
     <example>${fns:getConst(key)}</example>
   </function>
-  
+ 
   <!-- UserUtils -->
   <function>
     <description>获取当前用户对象</description>

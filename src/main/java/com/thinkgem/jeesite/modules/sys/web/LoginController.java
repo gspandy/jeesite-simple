@@ -180,8 +180,17 @@ public class LoginController extends BaseController{
 ////			request.getSession().setAttribute("aaa", "aa");
 ////		}
 //		System.out.println("==========================b");
+		request.getSession().setAttribute("logoutUrl", getLogOutUrl());
+		
 		return "modules/sys/sysIndex";
 	}
+	
+	private String getLogOutUrl(){
+	    String casUrl = Global.getConfig("cas.server.url");
+        String clientUrl=Global.getConfig("client.project.url");
+        return casUrl+"/logout?service="+clientUrl;
+    }
+	
 	
 	/**
 	 * 获取主题方案

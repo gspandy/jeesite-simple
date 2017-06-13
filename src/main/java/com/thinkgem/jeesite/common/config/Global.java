@@ -31,11 +31,12 @@ public class Global {
 	 */
 	private static Map<String, String> map = Maps.newHashMap();
 	
+	
 	/**
 	 * 属性文件加载对象
 	 */
 	private static PropertiesLoader loader = new PropertiesLoader("jeesite.properties");
-
+	
 	/**
 	 * 显示/隐藏
 	 */

@@ -154,7 +154,10 @@
 							<li><a href="${ctx}/sys/user/modifyPwd" target="mainFrame"><i class="icon-lock"></i>&nbsp;  修改密码</a></li>
 						</ul>
 					</li>
-					<li><a href="${ctx}/logout" title="退出登录">退出</a></li>
+					<li>
+<%-- 					<a href="${ctx}/logout" title="退出登录">退出</a> --%>
+					<a href="${logoutUrl}" title="退出登录">退出</a>
+					</li>
 					<li>&nbsp;</li>
 				</ul>
 				<%-- <c:if test="${cookie.theme.value eq 'cerulean'}">
