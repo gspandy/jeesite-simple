@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.thinkgem.jeesite</groupId>
-	<artifactId>product_admin</artifactId>
+	<artifactId>jeesite-simple</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
@@ -651,8 +651,6 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.6</version>
 			</plugin>
-
-
 		</plugins>
 	</build>
 

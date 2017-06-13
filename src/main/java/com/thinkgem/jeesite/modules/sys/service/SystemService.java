@@ -54,8 +54,8 @@ public class SystemService extends BaseService implements InitializingBean {
 	private MenuDao menuDao;
 	@Autowired
 	private SessionDAO sessionDao;
-	@Autowired
-	private SystemAuthorizingRealm systemRealm;
+	/*@Autowired
+	private SystemAuthorizingRealm systemRealm;*/
 	
 	public SessionDAO getSessionDao() {
 		return sessionDao;

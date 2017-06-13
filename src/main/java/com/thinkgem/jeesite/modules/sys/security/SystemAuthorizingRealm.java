@@ -44,7 +44,7 @@ import com.thinkgem.jeesite.modules.sys.web.LoginController;
  * @author ThinkGem
  * @version 2014-7-5
  */
-@Service
+//@Service
 //@DependsOn({"userDao","roleDao","menuDao"})
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
