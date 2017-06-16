@@ -19,7 +19,8 @@
 		a.update_by AS "updateBy.id",
 		a.update_date,
 		a.del_flag,
-		p.name AS "parent.name"
+		p.name AS "parent.name",
+		a.proj_code as projCode
 	</sql>
 	
 	<sql id="menuJoins">
@@ -83,7 +84,7 @@
 			update_by, 
 			update_date, 
 			remarks, 
-			del_flag
+			del_flag,proj_code
 		) VALUES (
 			#{id}, 
 			#{parent.id}, 
@@ -100,7 +101,7 @@
 			#{updateBy.id}, 
 			#{updateDate}, 
 			#{remarks}, 
-			#{delFlag}
+			#{delFlag},#{projCode}
 		)
 	</insert>
 	
@@ -117,7 +118,8 @@
 			permission = #{permission}, 
 			update_by = #{updateBy.id}, 
 			update_date = #{updateDate}, 
-			remarks = #{remarks}
+			remarks = #{remarks},
+			proj_code = #{projCode}
 		WHERE id = #{id}
 	</update>
 	

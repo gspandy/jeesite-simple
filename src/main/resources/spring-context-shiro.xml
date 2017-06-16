@@ -114,5 +114,9 @@
 	</bean>
 	
 	
+	<bean id="casConfig" class="com.thinkgem.jeesite.cas.CasConfig">
+		<property name="casUrl" value="${cas.server.url}"/>
+		<property name="clientUrl" value="${client.project.url}"/>
+	</bean>
 	
 </beans>

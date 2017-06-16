@@ -88,6 +88,15 @@
 				<span class="help-inline">控制器中定义的权限标识，如：@RequiresPermissions("权限标识")</span>
 			</div>
 		</div>
+		
+		<div class="control-group">
+			<label class="control-label">子系统代码:</label>
+			<div class="controls">
+				<form:input path="projCode" htmlEscape="false" maxlength="50" class="input-small"/>
+				<span class="help-inline">子系统的code，如权限管理系统auth_sys，在字典中查询获得</span>
+			</div>
+		</div>
+		
 		<div class="control-group">
 			<label class="control-label">备注:</label>
 			<div class="controls">

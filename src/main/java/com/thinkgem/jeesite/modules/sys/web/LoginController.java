@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.common.collect.Maps;
+import com.thinkgem.jeesite.cas.CasConfig;
 import com.thinkgem.jeesite.common.config.Global;
 import com.thinkgem.jeesite.common.security.shiro.session.SessionDAO;
 import com.thinkgem.jeesite.common.servlet.ValidateCodeServlet;
@@ -186,11 +187,11 @@ public class LoginController extends BaseController{
 	}
 	
 	private String getLogOutUrl(){
-	    String casUrl = Global.getConfig("cas.server.url");
-        String clientUrl=Global.getConfig("client.project.url");
-        return casUrl+"/logout?service="+clientUrl;
+        return casConfig.getCasUrl()+"logout?service="+casConfig.getClientUrl();
     }
 	
+	@Autowired
+	private CasConfig casConfig;
 	
 	/**
 	 * 获取主题方案
