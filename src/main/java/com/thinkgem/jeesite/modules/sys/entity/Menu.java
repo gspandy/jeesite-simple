@@ -172,6 +172,8 @@ public class Menu extends DataEntity<Menu> {
 	
 	//增加了一个子系统的字段 
 	private String projCode;//子系统code
+	
+	private String menuMark;
 
     public String getProjCode() {
         return projCode;
@@ -180,5 +182,19 @@ public class Menu extends DataEntity<Menu> {
     public void setProjCode(String projCode) {
         this.projCode = projCode;
     }
+
+	public String getMenuMark() {
+		return menuMark;
+	}
+
+	public void setMenuMark(String menuMark) {
+		this.menuMark = menuMark;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
+    
+    
 }
