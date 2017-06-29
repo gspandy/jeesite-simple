@@ -88,7 +88,7 @@
 				<span class="help-inline">控制器中定义的权限标识，如：@RequiresPermissions("权限标识")</span>
 			</div>
 		</div>
-		
+	<!-- 	
 		<div class="control-group">
 			<label class="control-label">子系统代码:</label>
 			<div class="controls">
@@ -96,6 +96,19 @@
 				<span class="help-inline">子系统的code，如权限管理系统auth_sys，在字典中查询获得</span>
 			</div>
 		</div>
+		 -->
+		
+		<div class="control-group">
+			<label class="control-label">所属子系统:</label>
+			<div class="controls">
+				<form:select path="projCode" class="input-large">
+					<form:option value="" label="请选择"/>
+					<form:options items="${fns:getDictList('sys_code')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
+				</form:select>
+			</div>
+		</div>
+		
+		<!-- 
 		<div class="control-group">
 			<label class="control-label">菜单标识:</label>
 			<div class="controls">
@@ -103,6 +116,17 @@
 				<span class="help-inline">菜单标识</span>
 			</div>
 		</div>
+		 -->
+			<div class="control-group">
+			<label class="control-label">菜单标识:</label>
+			<div class="controls">
+				<form:select path="menuMark" class="input-small">
+					<form:option value="" label="请选择"/>
+					<form:options items="${fns:getDictList('menu_mark')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
+				</form:select>
+			</div>
+		</div>
+		
 		<div class="control-group">
 			<label class="control-label">备注:</label>
 			<div class="controls">

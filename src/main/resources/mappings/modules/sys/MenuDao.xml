@@ -37,10 +37,41 @@
 	</select>
 	
 	<select id="findAllList" resultType="Menu">
+		<!-- 
 		SELECT
 			<include refid="menuColumns"/>
 		FROM sys_menu a
 		<include refid="menuJoins"/>
+		WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+		ORDER BY a.sort
+		 -->
+		
+		SELECT
+			a.id,
+		a.parent_id AS "parent.id",
+		a.parent_ids,
+		a.name,
+		a.href,
+		a.target,
+		a.icon,
+		a.sort,
+		a.is_show,
+		a.permission,
+		a.remarks,
+		a.create_by AS "createBy.id",
+		a.create_date,
+		a.update_by AS "updateBy.id",
+		a.update_date,
+		a.del_flag,
+		p.name AS "parent.name",
+		a.proj_code as projCode,
+		a.menu_mark as menuMark,
+		s.label as projCodeStr,
+		s2.label as menuMarkStr
+		FROM sys_menu a
+		LEFT JOIN sys_menu p ON p.id = a.parent_id and  p.del_flag = #{DEL_FLAG_NORMAL}
+		left join sys_dict s on s.value=a.proj_code and s.type='sys_code' and s.del_flag = #{DEL_FLAG_NORMAL}
+		left join sys_dict s2 on s2.value=a.menu_mark and s2.type='menu_mark' and s2.del_flag = #{DEL_FLAG_NORMAL}
 		WHERE a.del_flag = #{DEL_FLAG_NORMAL}
 		ORDER BY a.sort
 	</select>
@@ -56,6 +87,7 @@
 	</select>
 	
 	<select id="findByUserId" resultType="Menu">
+	<!--  
 		SELECT DISTINCT
 			<include refid="menuColumns"/>
 		FROM sys_menu a
@@ -64,6 +96,40 @@
 		JOIN sys_role r ON r.id = rm.role_id 
 		JOIN sys_user_role ur ON ur.role_id = r.id
 		JOIN sys_user u ON u.id = ur.user_id AND u.id = #{userId}
+		WHERE a.del_flag = #{DEL_FLAG_NORMAL} AND r.del_flag = #{DEL_FLAG_NORMAL} AND u.del_flag = #{DEL_FLAG_NORMAL} 
+		ORDER BY a.sort
+		-->
+		
+		SELECT distinct
+			a.id,
+		a.parent_id AS "parent.id",
+		a.parent_ids,
+		a.name,
+		a.href,
+		a.target,
+		a.icon,
+		a.sort,
+		a.is_show,
+		a.permission,
+		a.remarks,
+		a.create_by AS "createBy.id",
+		a.create_date,
+		a.update_by AS "updateBy.id",
+		a.update_date,
+		a.del_flag,
+		p.name AS "parent.name",
+		a.proj_code as projCode,
+		a.menu_mark as menuMark,
+		s.label as projCodeStr,
+		s2.label as menuMarkStr
+		FROM sys_menu a
+		LEFT JOIN sys_menu p ON p.id = a.parent_id and p.del_flag = #{DEL_FLAG_NORMAL}
+		left join sys_dict s on s.value=a.proj_code and s.type='sys_code' and s.del_flag = #{DEL_FLAG_NORMAL}
+		left join sys_dict s2 on s2.value=a.menu_mark and s2.type='menu_mark' and s2.del_flag = #{DEL_FLAG_NORMAL}
+		JOIN sys_role_menu rm ON rm.menu_id = a.id and rm.del_flag = #{DEL_FLAG_NORMAL}
+		JOIN sys_role r ON r.id = rm.role_id and r.del_flag = #{DEL_FLAG_NORMAL}
+		JOIN sys_user_role ur ON ur.role_id = r.id and ur.del_flag = #{DEL_FLAG_NORMAL}
+		JOIN sys_user u ON u.id = ur.user_id AND u.id = #{userId} and u.del_flag = #{DEL_FLAG_NORMAL}
 		WHERE a.del_flag = #{DEL_FLAG_NORMAL} AND r.del_flag = #{DEL_FLAG_NORMAL} AND u.del_flag = #{DEL_FLAG_NORMAL} 
 		ORDER BY a.sort
 	</select>
